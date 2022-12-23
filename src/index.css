@@ -19,7 +19,7 @@ body {
   height: 70px;
   padding: 0px 64px;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   display: flex;
@@ -47,7 +47,7 @@ body {
   padding: 8px 24px;
 }
 .main-section{
-  background-image: url(https://img.freepik.com/premium-vector/dots-line-vector-black-white-abstract-background_551880-552.jpg);
+  background-image: url("./assets/mainBg.svg");
   background-size: cover;
   min-height: calc(100vh - 70px);
   /* padding: 0px 64px; */
@@ -58,13 +58,12 @@ body {
 }
 .scroll{
   position: absolute;
-  bottom: 10px;
+  bottom: 24px;
 }
 .scroll-text{
   margin: 0px 5px 0px 25px;
 }
 .down-arrow {
-  color: var(--primary);
   position: absolute;
   animation: jumpInfinite 2s infinite;
 }
@@ -78,4 +77,60 @@ body {
   100% {
     margin-top: 0;
   }
+}
+.features-section{
+  display: flex;
+  background-color: #F8FCFF;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+.ft-text{
+  margin-top: 64px;
+  margin-bottom: 64px;
+  color: var(--primary);
+}
+.features1{
+  height: 400px;
+  display: flex;
+  gap: 128px;
+}
+.ft-info{
+  width: 468px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.ft-info-title{
+  font-size: 32px;
+}
+.ft-info-subtitle{
+  font-size: 18px;
+  color: rgb(95, 95, 95);
+}
+.ref-link{
+  color: var(--primary);
+  font-size: 14px;
+}
+.ft-info-img{
+  height: 300px;
+  width: 400px;
+  background-repeat: no-repeat;
+  height: inherit;
+}
+
+.ft-img1{
+  background-image: url("./assets/todoCuate.svg");
+}
+.ft-img2{
+  background-image: url("./assets/notesCuate.svg");
+}
+.ft-img3{
+  background-image: url("./assets/timeCuate.svg");
+}
+.ft-img4{
+  background-image: url("./assets/analysicCuate.svg");
 }
