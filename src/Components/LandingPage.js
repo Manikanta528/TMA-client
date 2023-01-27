@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -7,8 +8,8 @@ export default function LandingPage() {
       <nav className="nav-bar">
         <h3 style={{ fontWeight: "700" }}> TMA </h3>
         <div className="cta-btns">
-          <button className="secondary-btn">Log in</button>
-          <button className="main-btn">Sign Up</button>
+          <Link to="/login"><button className="secondary-btn">Log in</button></Link>
+          <Link to="/register"><button className="main-btn">Sign Up</button></Link>
         </div>
       </nav>
       <main className="main-section">
@@ -30,12 +31,14 @@ export default function LandingPage() {
             <br /> improve your life one task at a time.
           </center>
         </p>
-        <button
-          className="main-btn"
-          style={{ fontWeight: "700", padding: "12px 24px" }}
-        >
-          Sign Up Now
-        </button>
+        <Link to="/register">
+          <button
+            className="main-btn"
+            style={{ fontWeight: "700", padding: "12px 24px" }}
+          >
+            Sign Up Now
+          </button>
+        </Link>
         <div className="scroll">
           <div>
             <AiOutlineArrowDown className="down-arrow" />
@@ -111,12 +114,14 @@ export default function LandingPage() {
           <center>Ready to be more productive?</center>
         </h1>
         <center>
-        <button
-          className="main-btn"
-          style={{ fontWeight: "700", padding: "12px 24px",margin:"0px 0px 64px 0px" }}
-        >
-          Get Started for Free
-        </button>
+          <Link to="/register">
+            <button
+              className="main-btn"
+              style={{ fontWeight: "700", padding: "12px 24px",margin:"0px 0px 64px 0px" }}
+            >
+              Get Started for Free
+            </button>
+          </Link>
         </center>
       </section>
       <footer style={{backgroundColor:"black", height: "40px", padding : "12px 0px"}}>
