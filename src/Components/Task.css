@@ -1,0 +1,91 @@
+* {
+  box-sizing: content-box;
+}
+.todo-list-container {
+  background-color: #f8fcff;
+  height: 750px;
+  padding: 20px;
+}
+
+.new-item-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-item-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.new-item-container button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.todo-items-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #fff;
+  border-radius: 4px;
+  border: .5px solid rgb(140, 140, 140);
+  width: 95%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.todo-item:hover {
+  background-color: lightgray;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: black;
+  background-color: #92e3a9;
+}
+
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+.task-item-text {
+  flex: 1;
+}
+.todo-del-btn {
+  border: none;
+  background-color: #fff;
+  padding: 4px 8px;
+}
+.todo-del-btn:hover {
+  border: none;
+  background-color: red;
+  font-size: 1rem;
+  border-radius: 4px;
+  box-shadow: 1px 4px 5px -3px rgba(255, 0, 0, 0.75);
+  color: #fff;
+}
+.task-empty {
+  background-image: url("../assets/emptyTask.svg");
+  height: 454px;
+  width: 447px;
+  background-repeat: no-repeat;
+  margin: 100px auto 8px auto;
+}
