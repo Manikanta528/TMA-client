@@ -1,0 +1,31 @@
+.app-nav-bar{
+    font-weight: 700;
+    height: 70px;
+    padding: 0px 64px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap : 24px;
+    justify-content: space-between;
+}
+.nav-flex{
+    display: flex;
+    align-items: center;
+    gap : 24px;
+}
+
+.app-nav-bar div{
+    text-decoration: none;
+    color: rgb(122, 122, 122);
+}
+.app-nav-bar div:hover{
+    cursor: pointer;
+    color: var(--primary);
+}
+div .active-page{
+    color: var(--primary);
+}
+

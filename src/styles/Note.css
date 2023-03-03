@@ -1,0 +1,113 @@
+.note-pad {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #f8fcff;
+  gap: 64px;
+}
+.note-pad-title {
+  padding: 12px 40px 0px 64px;
+  display: absolute;
+  background-color: #f8fcff;
+}
+.note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 512px;
+  height: 600px;
+  padding: 2rem ;
+  margin: 2rem 2rem 24px 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.note-textarea {
+  width: 100%;
+  height: 512px;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+
+.note-button {
+  background-color: #3e8e41;
+  font-size: 1.6rem;
+  padding: 0.6rem 2rem;
+  border-radius: 1px;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.note-button:hover {
+  background-color: #57c75b;
+  color: #fff;
+}
+
+.note-list {
+  margin-top: 2rem;
+  width: 660px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-left: 40px;
+  gap: 24px;
+}
+
+.note-item {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inherit;
+  width: 150px;
+  height: 150px;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+.note-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.note-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.note-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  width: 50%;
+  border: none;
+}
+.preview:hover {
+  background-color: #3e8e41;
+  color: #fff;
+  border-radius: none;
+}
+.delete:hover {
+  background-color: #cb0000;
+  color: #fff;
+  border-radius: none;
+}
+.notes-empty {
+  background-image: url("../assets/emptyTask.svg");
+  height: 454px;
+  width: 447px;
+  background-repeat: no-repeat;
+  margin: 100px auto 0px auto;
+}
+.empty {
+  width: 660px;
+  margin-left: 40px;
+}

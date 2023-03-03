@@ -5,6 +5,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -28,23 +34,36 @@ body {
 }
 .cta-btns{
   display: flex;
-  gap: 24px;
+  gap: 1rem;
 }
 .main-btn{
   font-weight: inherit ;
   background-color: var(--primary);
   border: none;
   color: white;
+  border: 1px solid var(--primary);
+  font-size: 1rem;
   border-radius: 6px;
   padding: 8px 24px;
+}
+.main-btn:hover{
+  background-color: black;
+  color: white;
+  border: 1px solid black;
 }
 .secondary-btn{
   font-weight: inherit ;
   background-color: white;
-  border: 2px solid black;
+  border: 1px solid black;
   color: black;
+  font-size: 1rem;
   border-radius: 6px;
   padding: 8px 24px;
+}
+.secondary-btn:hover{
+  background-color: #111;
+  color: white;
+  border: 1px solid var(--primary);
 }
 .main-section{
   background-image: url("./assets/mainBg.svg");
