@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import './LoginPage.css';
+import { useNavigate } from "react-router-dom";
+
+import '../styles/LoginPage.css';
 
 
 const LoginPage = () => {
+    const navigate=useNavigate()
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -15,19 +18,21 @@ const LoginPage = () => {
         });
     };
 
-    const handleSubmit = async e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            const response = await fetch('/login', {
+             fetch('http://localhost:5001/api/login', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: { 'Content-Type': 'application/json' }
-            });
-            // handle the response from the server
-        } catch (err) {
-            console.error(err);
-        }
+            }).then((response)=>{
+                //console.log(response);
+                localStorage.setItem("email",formData.email);
+                response.statusText === "OK" ?navigate('/task'):alert("Invalid Credentials");
+            }).catch((err)=>{console.log(err)});           
     };
+    function handleNav() {
+        navigate('/register');
+    }
 
     return (
         <div className="login-page">
@@ -56,7 +61,10 @@ const LoginPage = () => {
                 <button type="submit" className="btn btn-primary">
                     Login
                 </button>
-                <div>Or Create an Account, <a href='./register'>Register</a> now.</div>
+                <br/>
+                <br/>
+                <div>Or Create an Account, <span onClick={handleNav} style={{"cursor":"pointer", "color":"#068932"}}>Register</span> now.</div>
+
             </form>
         </div>
     );

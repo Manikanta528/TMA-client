@@ -1,12 +1,16 @@
 import React from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { CgListTree } from "react-icons/cg";
 
 export default function LandingPage() {
+  function handleHome() {
+    window.location.href = "/";
+  }
   return (
     <div className="landing-page">
       <nav className="nav-bar">
-        <h3 style={{ fontWeight: "700" }}> TMA </h3>
+        <h3 style={{ "fontWeight": "700","cursor": "pointer" }} onClick={handleHome}><CgListTree style={{"position":"relative","top":"3px"}}/> TMA </h3>
         <div className="cta-btns">
           <Link to="/login"><button className="secondary-btn">Log in</button></Link>
           <Link to="/register"><button className="main-btn">Sign Up</button></Link>

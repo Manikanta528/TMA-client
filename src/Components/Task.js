@@ -1,32 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { MdDeleteForever } from 'react-icons/md'
 
-import './Task.css';
+import '../styles/Task.css';
+import NavBar from './NavBar';
 
 const Task = () => {
   const [todoItems, setTodoItems] = useState([]);
   const [newItemText, setNewItemText] = useState('');
-  console.log(todoItems.length);
+  //console.log(todoItems.length);
   const handleAddClick = () => {
-    if(newItemText == "") return;
-    setTodoItems([...todoItems, { text: newItemText, completed: false }]);
+    if(newItemText === "") {
+      alert("Please enter a task");
+      return;
+    }
+    let nt = { text: newItemText, completed: false }
+    let newTasks = [...todoItems, nt];
+    fetch('http://localhost:5001/api/task', {
+      method: 'POST',
+      body: JSON.stringify({"email":localStorage.getItem("email"),"task":newTasks}),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    setTodoItems(newTasks);
     setNewItemText('');
   };
 
   const handleDeleteClick = index => {
     const newTodoItems = [...todoItems];
     newTodoItems.splice(index, 1);
+    let user = localStorage.getItem("email");
+    fetch("http://localhost:5001/api/task/"+user, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"email":localStorage.getItem("email"),"task": newTodoItems})
+    })
     setTodoItems(newTodoItems);
   };
 
   const handleCheckboxClick = index => {
     const newTodoItems = [...todoItems];
     newTodoItems[index].completed = !newTodoItems[index].completed;
+    let user = localStorage.getItem("email");
+    fetch("http://localhost:5001/api/task/"+user, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({"email":localStorage.getItem("email"),"task": newTodoItems})
+    })
     setTodoItems(newTodoItems);
   };
+  useEffect(() => {
+    let user = localStorage.getItem("email");
+    fetch('http://localhost:5001/api/task/'+user, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }).then((response) => {
+      //console.log(response.json());
+      return response.json();
+    }).then((data) => {
+      //console.log(data.data[0].task);
+      setTodoItems(data.data[0].task);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, []);
 
   return (
+    <>
+    <NavBar index="1"/>
     <div className="todo-list-container">
       <div className="new-item-container">
         <input
@@ -60,6 +100,7 @@ const Task = () => {
         ))}
       </ul>}
     </div>
+    </>
   );
 };
 
