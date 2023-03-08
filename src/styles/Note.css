@@ -34,9 +34,10 @@
 
 .note-button {
   background-color: #3e8e41;
+  color: white;
   font-size: 1.6rem;
   padding: 0.6rem 2rem;
-  border-radius: 1px;
+  border-radius: 8px;
   border: none;
   margin-top: 1rem;
   cursor: pointer;
