@@ -58,15 +58,15 @@ const PomodoroTimer = () => {
       <h2 className="timer">{formatTime(time)}</h2>
       <div className="buttons">
         {isRunning ? (
-          <button className="button" onClick={handleStop}>
+          <button className="timer-button" onClick={handleStop}>
             Stop
           </button>
         ) : (
-          <button className="button" onClick={handleStart}>
+          <button className="timer-button" onClick={handleStart}>
             Start
           </button>
         )}
-        <button className="button" onClick={handleReset}>
+        <button className="timer-button" onClick={handleReset}>
           Reset
         </button>
       </div>
