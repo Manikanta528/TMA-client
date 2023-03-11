@@ -62,9 +62,9 @@ export default function LandingPage() {
               here to help you manage all your to-dos.
             </p>
 
-            <a href="#" className="ref-link">
+            {/* <a href="#" className="ref-link">
               Read More...
-            </a>
+            </a> */}
           </div>
           <div className="ft-info-img ft-img1"></div>
         </div>
@@ -77,9 +77,9 @@ export default function LandingPage() {
               Capture your thoughts and securely access them from any where. Go
               paperless with TMA.
             </p>
-            <a href="#" className="ref-link">
+            {/* <a href="#" className="ref-link">
               Read More...
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -91,9 +91,9 @@ export default function LandingPage() {
               focused, analyze data, and improve productivity.
             </p>
 
-            <a href="#" className="ref-link">
+            {/* <a href="#" className="ref-link">
               Read More...
-            </a>
+            </a> */}
           </div>
           <div className="ft-info-img ft-img3"></div>
         </div>
@@ -106,9 +106,9 @@ export default function LandingPage() {
               Time spent on work every day/week/month and the time ratio of your
               work. Make time traceable.{" "}
             </p>
-            <a href="#" className="ref-link">
+            {/* <a href="#" className="ref-link">
               Read More...
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
