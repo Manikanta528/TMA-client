@@ -20,6 +20,14 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(formData.name === "" || formData.email === "" || formData.password === "" || formData.password2 === ""){
+      alert("Please fill in all the fields with valid data");
+      return;
+    }
+    if (formData.password !== formData.password2) {
+      alert("Passwords do not match");
+      return;
+    }
     try {
       const response = await fetch("http://localhost:5001/api/register", {
         method: "POST",

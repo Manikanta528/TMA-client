@@ -10,7 +10,10 @@ const NavBar = (props) => {
     const navigator = useNavigate();
     function handleNav() {
         let exit = prompt("Are you sure you want to Logout? (Y/N)");
-        if(exit == "Y" || exit == "y") navigator('/');
+        if(exit === "Y" || exit === "y"){ 
+          localStorage.removeItem("email");
+          navigator('/')
+        };    
     }
   return (
     <div className='app-nav-bar'>

@@ -17,18 +17,41 @@ const LoginPage = () => {
             [e.target.name]: e.target.value
         });
     };
+    const handleIncorrect = () => {
+        setFormData({
+            ...formData,
+            password: ''
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-             fetch('http://localhost:5001/api/login', {
+        if(formData.email === "" || formData.password === ""){
+            alert("Please enter your credentials");
+            return;
+        }
+            fetch('http://localhost:5001/api/login', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: { 'Content-Type': 'application/json' }
             }).then((response)=>{
-                //console.log(response);
-                localStorage.setItem("email",formData.email);
-                response.statusText === "OK" ?navigate('/task'):alert("Invalid Credentials");
-            }).catch((err)=>{console.log(err)});           
+                return response.json();
+            }).then((data)=>{
+                console.log(data);
+                if(data.err === "user not found"){
+                    alert(data.err);
+                    window.location.reload();
+                }
+                 else if(data.err === "wrong password"){
+                    alert(data.err);
+                    handleIncorrect();
+                 }
+                if(data.login === "success"){
+                    localStorage.setItem("email", formData.email);
+                    navigate('/dashboard');
+                }
+            })
+            .catch((err)=>{console.log(err)});           
     };
     function handleNav() {
         navigate('/register');
