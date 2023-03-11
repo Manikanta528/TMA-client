@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { MdDeleteForever } from 'react-icons/md'
+
 
 import '../styles/Task.css';
 import NavBar from './NavBar';
@@ -8,7 +9,6 @@ import NavBar from './NavBar';
 const Task = () => {
   const [todoItems, setTodoItems] = useState([]);
   const [newItemText, setNewItemText] = useState('');
-  //console.log(todoItems.length);
   const handleAddClick = () => {
     if(newItemText === "") {
       alert("Please enter a task");
@@ -63,6 +63,12 @@ const Task = () => {
       console.log(err);
     })
   }, []);
+
+  useEffect(() => {
+    if(localStorage.getItem("email") === null){
+      window.location.href = "/login";
+    }
+  },[])
 
   return (
     <>

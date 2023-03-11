@@ -50,6 +50,12 @@ const PomodoroTimer = () => {
     setTime(25 * 60);
   };
 
+  useEffect(() => {
+    if(localStorage.getItem("email") === null){
+      window.location.href = "/login";
+    }
+  },[])
+
   return (
     <>
     <NavBar index="2"/>

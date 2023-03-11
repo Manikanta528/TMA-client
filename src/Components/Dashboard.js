@@ -35,6 +35,12 @@ const Dashboard = () => {
       });
   }, [0]);
 
+  useEffect(() => {
+    if(localStorage.getItem("email") === null){
+      window.location.href = "/login";
+    }
+  },[])
+
   
   // qoute generator
   const [quote, setQuote] = useState("");

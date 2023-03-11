@@ -58,6 +58,12 @@ const Note = () => {
       console.log(err);
     });
   }, []);
+
+  useEffect(() => {
+    if(localStorage.getItem("email") === null){
+      window.location.href = "/login";
+    }
+  },[])
   
 
   return (
