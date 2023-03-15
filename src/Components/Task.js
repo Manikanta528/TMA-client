@@ -26,6 +26,7 @@ const Task = () => {
   };
 
   const handleDeleteClick = index => {
+    if(!window.confirm("Are you sure you want to delete this task?")) return;
     const newTodoItems = [...todoItems];
     newTodoItems.splice(index, 1);
     let user = localStorage.getItem("email");

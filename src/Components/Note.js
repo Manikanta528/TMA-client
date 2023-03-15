@@ -35,6 +35,7 @@ const Note = () => {
     setNote("");
   };
   const handleDelete = (index) => {
+    if(!window.confirm("Are you sure you want to delete this note?")) return;
     const newNotes = notes.filter((n, i) => i !== index);
     changeNotes(newNotes);
     setNotes(newNotes);
@@ -77,7 +78,7 @@ const Note = () => {
               <>
                 <div key={index} className="note-item">
                   <h6>Note: {index + 1}</h6>
-                  <pre style={{ justifyContent: "flex-start" }}>{n}</pre>
+                  <pre style={{  textOverflow: "ellipsis", overflow: "hidden" }}>{n}</pre>
                   <div className="note-btns">
                     <button
                       className="note-btn preview"

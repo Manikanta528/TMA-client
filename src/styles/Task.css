@@ -43,7 +43,7 @@
   padding: 10px;
   font-size: 1rem;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   border: .5px solid rgb(140, 140, 140);
   width: 95%;
   cursor: pointer;
@@ -70,10 +70,10 @@
   flex: 1;
 }
 .todo-del-btn {
-  border: none;
   background-color: #fff;
   color:#ff0000;
   border: 1px solid red;
+  border-radius: 8px;
   font-size: 1rem;
   padding: 4px 8px;
 }
@@ -82,7 +82,7 @@
   background-color: red;
   border: 1px solid red;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 1px 4px 5px -3px rgba(255, 0, 0, 0.75);
   color: #fff;
 }
