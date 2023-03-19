@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/RegisterPage.css";
+import bcrypt from "bcryptjs";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -20,7 +21,12 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(formData.name === "" || formData.email === "" || formData.password === "" || formData.password2 === ""){
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.password2 === ""
+    ) {
       alert("Please fill in all the fields with valid data");
       return;
     }
@@ -28,22 +34,29 @@ const RegisterPage = () => {
       alert("Passwords do not match");
       return;
     }
-    try {
-      const response = await fetch("http://localhost:5001/api/register", {
+    bcrypt.hash(formData.password, 10).then((hashedPassword) => {
+      //console.log(hashedPassword);
+      const register = formData;
+      register.password = hashedPassword;
+      register.password2 = hashedPassword;
+      //console.log(register);
+      fetch("http://localhost:5001/api/register", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(register),
         headers: { "Content-Type": "application/json" },
-      });
-      // handle the response from the server
-
-      response.json().then((result) => {
-        if (result === "ok") {
-          navigate("/login");
-        }
-      });
-    } catch (err) {
-      console.error(err);
-    }
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          if (result === "ok") {
+            navigate("/login");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
   };
   function handleNav() {
     navigate("/login");
@@ -96,10 +109,17 @@ const RegisterPage = () => {
         <button type="submit" className="btn btn-primary">
           Register
         </button>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>
-          Already have an account, <span onClick={handleNav} style={{"cursor":"pointer", "color":"#068932"}}>Login</span> here.
+          Already have an account,{" "}
+          <span
+            onClick={handleNav}
+            style={{ cursor: "pointer", color: "#068932" }}
+          >
+            Login
+          </span>{" "}
+          here.
         </div>
       </form>
     </div>
