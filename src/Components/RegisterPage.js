@@ -34,6 +34,10 @@ const RegisterPage = () => {
       alert("Passwords do not match");
       return;
     }
+    if(formData.password.length < 8 ){
+      alert("Password length should be greater than 7");
+      return;
+    }
     bcrypt.hash(formData.password, 10).then((hashedPassword) => {
       //console.log(hashedPassword);
       const register = formData;
@@ -49,7 +53,14 @@ const RegisterPage = () => {
           return res.json();
         })
         .then((result) => {
+          console.log(result);
+          if(result.code === 11000){
+            alert("Email already exists. Please login");
+            navigate("/login");
+            return;
+          }
           if (result === "ok") {
+            alert("Registered Successfully. Please login");
             navigate("/login");
           }
         })
